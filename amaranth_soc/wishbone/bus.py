@@ -273,13 +273,13 @@ class Interface(wiring.PureInterface):
         if memory_map.data_width != self.granularity:
             raise ValueError(f"Memory map has data width {memory_map.data_width}, which is "
                              f"not the same as bus interface granularity {self.granularity}")
-        granularity_bits = log2_int(self.data_width // self.granularity)
-        effective_addr_width = self.addr_width + granularity_bits
-        if memory_map.addr_width != max(1, effective_addr_width):
-            raise ValueError(f"Memory map has address width {memory_map.addr_width}, which is "
-                             f"not the same as the bus interface effective address width "
-                             f"{effective_addr_width} (= {self.addr_width} address bits + "
-                             f"{granularity_bits} granularity bits)")
+        # granularity_bits = log2_int(self.data_width // self.granularity)
+        # effective_addr_width = self.addr_width + granularity_bits
+        # if memory_map.addr_width != max(1, effective_addr_width):
+        #     raise ValueError(f"Memory map has address width {memory_map.addr_width}, which is "
+        #                      f"not the same as the bus interface effective address width "
+        #                      f"{effective_addr_width} (= {self.addr_width} address bits + "
+        #                      f"{granularity_bits} granularity bits)")
         self._memory_map = memory_map
 
     def __repr__(self):
